@@ -35,4 +35,4 @@ sh frontend.sh
 # Trouble shoot the mysql server:
 ```
 mysql -h mysql.lithesh.shop -u root -pExpenseApp@1
-``
+```
