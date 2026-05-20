@@ -1,9 +1,9 @@
 # Login into mysql server using putty.
 ```
-git clone https://github.com/rajalingarao/3.4.expense-shellscript.git
+git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 ```
 ```
-cd 3.4.expense-shellscript
+cd 3.5.expense-shellscript-source
 ```
 ```
 sh mysql.sh
@@ -12,10 +12,10 @@ sh mysql.sh
 # Login into backend server
 ssh ec2-user@backend.lithesh.shop
 ```
-git clone https://github.com/rajalingarao/3.4.expense-shellscript.git
+git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 ```
 ```
-cd 3.4.expense-shellscript
+cd 3.5.expense-shellscript-source
 ```
 ```
 sh backend.sh
@@ -24,10 +24,10 @@ sh backend.sh
 # Login into frontend server
 ssh ec2-user@frontend.lithesh.shop
 ```
-git clone https://github.com/rajalingarao/3.4.expense-shellscript.git
+git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 ```
 ```
-cd 3.4.expense-shellscript
+cd 3.5.expense-shellscript-source
 ```
 ```
 sh frontend.sh
