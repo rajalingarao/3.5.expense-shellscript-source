@@ -9,10 +9,16 @@ echo "Please enter DB password:"
 read mysql_root_password
 
 dnf install mysql-server -y &>>$LOGFILE
-systemctl enable mysqld &>>$LOGFILE
-systemctl start mysqld &>>$LOGFILE
+VALIDATE $? "Installing of MySQL Server"
 
-mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
+systemctl enable mysqld &>>$LOGFILE
+VALIDATE $? "Enabling of MySQL Server"
+
+systemctl start mysqld &>>$LOGFILE
+VALIDATE $? "Starting the MySQL server"
+
+# mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
+
 #Below code will be useful for idempotent nature
 # #mysql -h mysql.lithesh.shop -u root -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 
@@ -25,8 +31,17 @@ mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
 #     echo -e "MySQL Root password is already setup...$Y SKIPPING $N"
 # fi
 
-systemctl status mysqld &>>$LOGFILE
+mysql -h mysql.lithesh.shop -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+if [ $? -ne 0 ] 
+then
+   mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
+   VALIDATE $? "MySQL Root password setup done"
+else
+   echo -e "MySQL Root password is already setup...$Y SKIPPING $N"
+fi
 
+systemctl status mysqld &>>$LOGFILE
+VALIDATE $? "mysql installation status"
 
 # need to setup password first for MySQL:
 # mysql -h mysql.lithesh.shop -u root -pExpenseApp@1
