@@ -24,7 +24,7 @@ unzip /tmp/frontend.zip &>>$LOGFILE
 VALIDATE $? "Extracked frontend code"
 
 #cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE
-cp /root/3.5.expense-shellscript-source/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE
+cp /home/ec2-user/3.5.expense-shellscript-source/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE
 VALIDATE $? "Copied expense conf"
 
 systemctl restart nginx &>>$LOGFILE

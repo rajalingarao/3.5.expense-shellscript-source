@@ -33,7 +33,7 @@ unzip /tmp/backend.zip &>>$LOGFILE
 
 npm install &>>$LOGFILE
 
-cp /root/3.5.expense-shellscript-source/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /home/ec2-user/3.5.expense-shellscript-source/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 
 systemctl daemon-reload &>>$LOGFILE
 
@@ -43,7 +43,7 @@ systemctl enable backend &>>$LOGFILE
 
 dnf install mysql -y &>>$LOGFILE
 
-mysql -h db.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
+mysql -h mysql.lithesh.shop -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 
 systemctl restart backend &>>$LOGFILE
 
