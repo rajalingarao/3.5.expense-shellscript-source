@@ -6,7 +6,7 @@ git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 cd 3.5.expense-shellscript-source
 ```
 ```
-sh mysql.sh
+sudo sh mysql.sh
 ```
 
 # Login into backend server
@@ -18,7 +18,7 @@ git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 cd 3.5.expense-shellscript-source
 ```
 ```
-sh backend.sh
+sudo sh backend.sh
 ```
 
 # Login into frontend server
@@ -30,7 +30,7 @@ git clone https://github.com/rajalingarao/3.5.expense-shellscript-source.git
 cd 3.5.expense-shellscript-source
 ```
 ```
-sh frontend.sh
+sudo sh frontend.sh
 ```
 # Trouble shoot the mysql server:
 ```
